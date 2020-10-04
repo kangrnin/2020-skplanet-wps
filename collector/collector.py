@@ -3,11 +3,11 @@ from wifi_bssid import get_wifis, enable_wifi
 
 def collect(rp):
     wifis = []
-    cnt = 0
+    cnt = 1
     while True:
         try:
             wifis += get_wifis()
-            print('completed scan #'+cnt)
+            print('completed scan #'+str(cnt))
             cnt += 1
             
         except KeyboardInterrupt:
@@ -19,6 +19,9 @@ def collect(rp):
 
 if __name__ == "__main__":
     while (rp := int(input('Enter RP (-1 = exit) : '))) != -1:
-        collect(rp)
+        try:
+            collect(rp)
+        except KeyboardInterrupt:
+            continue
         
         

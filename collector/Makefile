@@ -8,3 +8,7 @@ bssid :
 
 print : 
 	python wifi_print.py
+
+collect : 
+	python collector.py
+
