@@ -1,27 +1,21 @@
 import pandas as pd
 from wifi_bssid import get_wifis, enable_wifi
 
-def collect(rp):
+def collect(rp, cnt):
     wifis = []
-    cnt = 1
-    while True:
-        try:
-            wifis += get_wifis()
-            print('completed scan #'+str(cnt))
-            cnt += 1
-            
-        except KeyboardInterrupt:
-            enable_wifi()
-            break
+    for i in range(cnt):
+        wifis += get_wifis()
+        print('completed scan #'+str(i+1))
     
     df = pd.DataFrame(wifis)
     df.to_csv('../signal_data/rp_'+str(rp)+'.csv', mode='a', index=False, header=False)
 
 if __name__ == "__main__":
-    while (rp := int(input('Enter RP (-1 = exit) : '))) != -1:
-        try:
-            collect(rp)
-        except KeyboardInterrupt:
-            continue
+    while True:
+        rp = int(input('Enter RP : '))
+        if rp == -1:
+            break
+        cnt = int(input('Enter # of scans : '))
+        collect(rp, cnt)
         
         

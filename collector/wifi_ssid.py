@@ -17,6 +17,6 @@ for result in results:
     ssid = lines[0].split()[-1]
     # BSSID가 여러 개 있으면 맨 처음것만 가져옴
     signal = lines[5].split()[-1]
-    wifis.append({'ssid':ssid, 'signal':signal})
+    wifis.append({'ssid':ssid, 'signal':signal, 'scan_time':scan_time})
 
 print(*wifis, sep='\n')
