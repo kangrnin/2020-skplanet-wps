@@ -11,19 +11,21 @@ def get_wifis():
 
     time.sleep(3)
     output = subprocess.run(
-        ["netsh", "wlan", "show", "network", "mode=Bssid"],
+        ['netsh', 'wlan', 'show', 'network', 'mode=Bssid'],
         capture_output=True, text=True).stdout
 
     results = output.split('\n\n')[1:-1]
 
-    scan_time = datetime.datetime.now()
+    timestamp = datetime.datetime.now()
     wifis = []
     for result in results:
         lines = result.split('\n')
-        for i in range(4, len(lines), 6):
-            bssid = lines[i].split()[-1]
-            signal = lines[i+1].split()[-1]
-            wifis.append({'bssid':bssid, 'signal':signal, 'scan_time':scan_time})
+
+        for i in range(len(lines)):
+            if lines[i].split()[0] == 'BSSID':
+                bssid = lines[i].split()[-1]
+                signal = lines[i+1].split()[-1]
+                wifis.append({'bssid':bssid, 'signal':signal, 'timestamp':timestamp})
 
     return wifis
 
