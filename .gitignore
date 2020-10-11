@@ -1,4 +1,5 @@
 .vscode/
 signal_data/
+signal_data_filtered/
 __pycache__/
 *.pyc
