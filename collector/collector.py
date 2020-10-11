@@ -8,7 +8,8 @@ def collect(rp, cnt):
         print('completed scan #'+str(i+1))
     
     df = pd.DataFrame(wifis)
-    df.to_csv('../signal_data/rp_'+str(rp)+'.csv', mode='a', index=False, header=False)
+    #df.to_csv('../signal_data/rp_'+str(rp)+'.csv', mode='a', index=False, header=False)
+    df.to_csv('../test/signal_data/rp_'+str(rp)+'.csv', mode='a', index=False, header=False)
 
 if __name__ == "__main__":
     while True:
