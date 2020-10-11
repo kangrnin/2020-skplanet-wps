@@ -4,3 +4,4 @@ signal_data_filtered/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+reference/
