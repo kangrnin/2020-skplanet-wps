@@ -12,6 +12,6 @@ def count_bssid():
                 total_set.add(line.split(',')[0])
             print('distinct bssids in '+filename+' : '+str(len(bssid_set)))
     print('total distinct bssids : '+str(len(total_set)))
-                
+
 if __name__ == '__main__':
     count_bssid()
