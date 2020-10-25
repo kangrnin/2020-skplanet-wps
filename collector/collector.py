@@ -5,6 +5,7 @@ from wifi_bssid import get_wifis, enable_wifi
 def collect(rp, cnt):
     script_path = Path(__file__).parent
     raw_path = script_path / '../signal_data/raw'
+    raw_path.mkdir(parents=True, exist_ok=True)
 
     wifis = []
     for i in range(cnt):
