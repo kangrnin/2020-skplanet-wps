@@ -1,6 +1,6 @@
 .vscode/
+ml_data/
 signal_data/
-signal_data_filtered/
 processed_data/
 __pycache__/
 *.pyc
