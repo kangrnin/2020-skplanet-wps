@@ -12,7 +12,7 @@ def get_wifis():
     time.sleep(3)
     output = subprocess.run(
         ['netsh', 'wlan', 'show', 'network', 'mode=Bssid'],
-        capture_output=True, text=True).stdout
+        capture_output=True, text=True, encoding='ISO-8859-1').stdout
 
     results = output.split('\n\n')[1:-1]
 
