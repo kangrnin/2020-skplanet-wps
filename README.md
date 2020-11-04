@@ -39,5 +39,14 @@ jupyter notebook
 혹은 vscode의 python extension 설치하면 코드 상에서 수정 가능<br>
 (파이썬 kernel을 skplanet-wps으로 설정해야 함)<br>
 
+---
+
+실행 순서
+---
+1. collector.py로 wifi 데이터 수집
+2. 모델 학습에 사용하고자 하는 데이터를 ml_data/signal_data에 넣기
+3. make_ml_data.ipynb 실행
+4. randomforest.ipynb와 svm.ipynb로 모델 학습 (ml_data 폴더 안에 저장됨)
+5. detection.py로 실시간 인식 수행
 
 
