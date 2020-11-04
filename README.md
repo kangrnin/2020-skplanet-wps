@@ -29,7 +29,6 @@ conda activate skplanet-wps
 ---
 ```
 python ~.py
-make ~
 ```
 파이썬 파일(.py) - python 명령어 사용<br>
 ```
@@ -45,7 +44,7 @@ jupyter notebook
 ---
 1. collector.py로 wifi 데이터 수집
 2. 모델 학습에 사용하고자 하는 데이터를 ml_data/signal_data에 넣기
-3. make_ml_data.ipynb 실행
+3. make_ml_data.ipynb 실행 (모델 학습용 데이터 생성)
 4. randomforest.ipynb와 svm.ipynb로 모델 학습 (ml_data 폴더 안에 저장됨)
 5. detection.py로 실시간 인식 수행
 
