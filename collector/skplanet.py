@@ -7,8 +7,15 @@
 # WARNING! All changes made in this file will be lost!
 from PyQt5.QtWidgets import QDialog
 from PyQt5 import QtCore, QtGui, QtWidgets
+from os import listdir
+from os.path import isdir, join, splitext
+from pathlib import Path
 
 class Ui_MainWindow(object):
+    def __init__(self):
+        self.script_path = Path(__file__).parent
+        self.data_path = (self.script_path/"../signal_data").resolve()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -59,14 +66,18 @@ class Ui_MainWindow(object):
         self.RP_newbutton.clicked.connect(MainWindow.new_rp)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.building_comboBox.addItem(" ")
-        self.building_comboBox.addItem("제1과학관(31동)")
-        self.building_comboBox.addItem("제2과학관(32동)")
+        print(self.data_path)
+        self.building_comboBox.clear()
+        for building in listdir(self.data_path):
+            if isdir(join(self.data_path, building)):
+                self.building_comboBox.addItem(building)
+        
+        self.building_comboBox.currentTextChanged.connect(self.onBuildingChanged)
 
-        self.RP_comboBox.addItem(" ")
-        self.RP_comboBox.addItem("1층 1강의실")
-        self.RP_comboBox.addItem("1층 2강의실")
-        self.RP_comboBox.addItem("1층 3강의실")
+    def onBuildingChanged(self, value):
+        self.RP_comboBox.clear()
+        for RP in listdir(join(self.data_path, value)):
+            self.RP_comboBox.addItem(splitext(RP)[0])
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
