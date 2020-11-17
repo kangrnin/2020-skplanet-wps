@@ -65,7 +65,7 @@ class indoor(QMainWindow,Ui_MainWindow):
         self.dialog.show()
 
     def dialog_close(self):
-        self.dialog.close(self)
+        self.dialog.close()
 
     def scan_check(self):
         #label2 = QLabel("찾으시려는 새로운 건물 이름을 입력하시오", self.dialog)

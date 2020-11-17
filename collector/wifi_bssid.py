@@ -24,7 +24,7 @@ def get_wifis():
         for i in range(len(lines)):
             if lines[i].split()[0] == 'BSSID':
                 bssid = lines[i].split()[-1]
-                signal = lines[i+1].split()[-1]
+                signal = lines[i+1].split()[-1][:-1]
                 wifis.append({'bssid':bssid, 'signal':signal, 'timestamp':timestamp})
 
     return wifis
