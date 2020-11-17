@@ -1,6 +1,6 @@
 from pathlib import Path
 import pandas as pd
-from wifi_bssid import get_wifis, enable_wifi
+from wifi_scan import get_wifis, enable_wifi
 
 def collect(position, rp, cnt):
     #position = str(position)
