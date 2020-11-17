@@ -3,6 +3,8 @@ import pandas as pd
 from wifi_bssid import get_wifis, enable_wifi
 
 def collect(position, rp, cnt):
+    #position = str(position)
+
     script_path = Path(__file__).parent
     data_path = script_path / '../signal_data'
     # 데이터 파일 폴더 생성
