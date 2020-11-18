@@ -126,4 +126,3 @@ dependencies:
     - pyscreeze==0.1.26
     - pytweening==1.0.3
     - wifi==0.3.8
-prefix: C:\Users\kangr\.conda\envs\skplanet-wps
