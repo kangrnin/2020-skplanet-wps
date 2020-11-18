@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import joblib
-from wifi_bssid import get_wifis
+from wifi_scan_bssid import get_wifis
 from collections import defaultdict
 
 model = joblib.load('../ml_data/model_randomforest.plk')
