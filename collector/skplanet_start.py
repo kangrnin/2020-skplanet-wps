@@ -187,8 +187,7 @@ class indoor(QMainWindow,Ui_MainWindow):
         label.setGeometry(120, 70, 400, 30)
         label.move(100, 50)
         label.setStyleSheet("font: 9pt \"마루 부리OTF Beta\";\n"
-"background-color: rgb(239, 240, 255);"
-"background-color: rgb(255, 251, 194);"
+"background-color: rgb(255, 255, 238);"
 "border-style: outset;\n"
 "border-radius: 15px;\n"
 "padding: 1px;\n")
@@ -199,8 +198,7 @@ class indoor(QMainWindow,Ui_MainWindow):
         label3.move(100, 100)
         label3.setObjectName("label")
         label3.setStyleSheet("font: 9pt \"마루 부리OTF Beta\";\n"
-"background-color: rgb(239, 240, 255);"
-"background-color: rgb(255, 251, 194);"
+"background-color: rgb(255, 255, 238);"
 "border-style: outset;\n"
 "border-radius: 15px;\n"
 "padding: 1px;\n")
@@ -210,8 +208,7 @@ class indoor(QMainWindow,Ui_MainWindow):
         label2.move(100, 150)
         label2.setObjectName("label")
         label2.setStyleSheet("font: 9pt \"마루 부리OTF Beta\";\n"
-"background-color: rgb(239, 240, 255);"
-"background-color: rgb(255, 251, 194);"
+"background-color: rgb(255, 255, 238);"
 "border-style: outset;\n"
 "border-radius: 15px;\n"
 "padding: 1px;\n")
@@ -240,11 +237,11 @@ class indoor(QMainWindow,Ui_MainWindow):
         btnDialog2.setGeometry(50, 50, 200, 50)
         btnDialog2.move(100, 400)
         btnDialog2.setStyleSheet("font: 9pt \"마루 부리OTF Beta\";\n"
-"background-color: rgb(198, 199, 255);"
+"background-color: rgb(239, 240, 255);"
 "border-style: outset;\n"
-"border-width: 2px;\n"
+"border-width: 3px;\n"
 "border-radius: 15px;\n"
-"border-color: black;\n"
+"border-color: rgb(161,161,255);\n"
 "padding: 1px;\n")
         btnDialog2.clicked.connect(self.scan_check)
 
@@ -252,11 +249,11 @@ class indoor(QMainWindow,Ui_MainWindow):
         btnDialog2.setGeometry(50, 50, 250, 50)
         btnDialog2.move(320, 400)
         btnDialog2.setStyleSheet("font: 9pt \"마루 부리OTF Beta\";\n"
-"background-color: rgb(198, 199, 255);"
+"background-color: rgb(239, 240, 255);"
 "border-style: outset;\n"
-"border-width: 2px;\n"
+"border-width: 3px;\n"
 "border-radius: 15px;\n"
-"border-color: black;\n"
+"border-color: rgb(161,161,255);\n"
 "padding: 1px;\n")
         btnDialog2.clicked.connect(self.remove_data)
         self.dialog.show()
