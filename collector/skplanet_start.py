@@ -16,6 +16,8 @@ from wifi_scan import get_wifis
 
 from PyQt5 import QtTest
 
+import requests
+
 class indoor(QMainWindow,Ui_MainWindow): 
     def __init__(self):
         super().__init__()
@@ -180,7 +182,7 @@ class indoor(QMainWindow,Ui_MainWindow):
         # position, rp 정보 column을 추가해서 통합 데이터파일에도 저장
         df['position'] = position
         df['rp'] = rp
-        df.to_csv(data_path/'signal_all.csv', mode='a', index=False, header=False)
+        df.to_csv(data_path/position/'signal_all.csv', mode='a', index=False, header=False)
         self.dialog.close()
 
         label = QLabel("스캔이 성공적으로 완료됐습니다", self.dialog)
@@ -280,8 +282,15 @@ class indoor(QMainWindow,Ui_MainWindow):
 
     # execute detector 
     def scan_check(self):
-           btn_1= pyautogui.alert("서버에 성공적으로 전송되었습니다.")
-           self.dialog.close()
+        position = self.building_comboBox.currentText()
+        script_path = Path(__file__).parent
+        data_path = script_path / '../signal_data'
+
+        data_df = pd.read_csv(data_path/position/'signal_all.csv', header=None, names=['bssid', 'rssi', 'timestamp', 'position', 'rp'])
+        print(data_df.to_json(orient="records"))
+        result = requests.post('http://3.35.198.100/admin/', data=data_df.to_json(orient="records"))
+        btn_1= pyautogui.alert("서버에 성공적으로 전송되었습니다.")
+        self.dialog.close()
 
 app =QApplication([])
 main_dialog = indoor() #해당부분 위 class name과 동일하게 작성

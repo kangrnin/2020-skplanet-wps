@@ -48,7 +48,7 @@ def collect(position, rp):
     # position, rp 정보 column을 추가해서 통합 데이터파일에도 저장
     df['position'] = position
     df['rp'] = rp
-    df.to_csv(data_path/'signal_all.csv', mode='a', index=False, header=False)
+    df.to_csv(data_path/position/'signal_all.csv', mode='a', index=False, header=False)
 
 if __name__ == "__main__":
     while True:

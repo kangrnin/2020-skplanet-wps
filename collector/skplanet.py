@@ -113,7 +113,8 @@ class Ui_MainWindow(object):
     def onBuildingChanged(self, value):
         self.RP_comboBox.clear()
         for RP in listdir(join(self.data_path, value)):
-            self.RP_comboBox.addItem(splitext(RP)[0])
+            if RP != "signal_all.csv":
+                self.RP_comboBox.addItem(splitext(RP)[0])
     #
     
     def retranslateUi(self, MainWindow):
