@@ -268,7 +268,17 @@ class indoor(QMainWindow,Ui_MainWindow):
         self.dialog.close()
 
     def send(self):
-        print("send")
+        position = self.building_comboBox.currentText()
+
+        script_path = Path(__file__).parent
+        data_path = script_path / '../signal_data'
+
+        data_df = pd.read_csv(data_path/position/'signal_all.csv', header=None, names=['bssid', 'rssi', 'timestamp', 'position', 'rp'])
+
+        print(data_df.to_json(orient="records")[:100])
+        result = requests.post('http://3.35.198.100:3000/rest/admin', json={'wifi_data':data_df.to_json(orient="records")})
+        print(result)
+        btn_1= pyautogui.alert("서버에 성공적으로 전송되었습니다.")
 
     def location(self):
         print("location")
@@ -287,8 +297,9 @@ class indoor(QMainWindow,Ui_MainWindow):
         data_path = script_path / '../signal_data'
 
         data_df = pd.read_csv(data_path/position/'signal_all.csv', header=None, names=['bssid', 'rssi', 'timestamp', 'position', 'rp'])
-        print(data_df.to_json(orient="records"))
-        result = requests.post('http://3.35.198.100/admin/', data=data_df.to_json(orient="records"))
+        print(data_df.to_json(orient="records")[:100])
+        result = requests.post('http://3.35.198.100:3000/rest/admin', data=data_df.to_json(orient="records"))
+        print(result)
         btn_1= pyautogui.alert("서버에 성공적으로 전송되었습니다.")
         self.dialog.close()
 
